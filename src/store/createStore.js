@@ -17,8 +17,8 @@ const createStore = (initialState = {}) => {
   let composeEnhancers = compose
 
   if (__DEV__) {
-    if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function') {
-      composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function') { // eslint-disable-line
+      composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ // eslint-disable-line
     }
   }
 
@@ -30,8 +30,8 @@ const createStore = (initialState = {}) => {
     initialState,
     composeEnhancers(
       applyMiddleware(...middleware),
-      ...enhancers
-    )
+      ...enhancers,
+    ),
   )
   store.asyncReducers = {}
 
@@ -40,7 +40,7 @@ const createStore = (initialState = {}) => {
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      const reducers = require('./reducers').default
+      const reducers = require('./reducers').default // eslint-disable-line
       store.replaceReducer(reducers(store.asyncReducers))
     })
   }

@@ -1,23 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './components/App'
 import createStore from './store/createStore'
 import './styles/main.scss'
 
+
 // Store Initialization
 // ------------------------------------
-const store = createStore(window.__INITIAL_STATE__)
+const store = createStore(window.__INITIAL_STATE__) // eslint-disable-line
 
 // Render Setup
 // ------------------------------------
 const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
-  const App = require('./components/App').default
-  const routes = require('./routes/index').default(store)
+  const routes = require('./routes/index').default(store) // eslint-disable-line
 
   ReactDOM.render(
     <App store={store} routes={routes} />,
-    MOUNT_NODE
+    MOUNT_NODE,
   )
 }
 
@@ -27,7 +28,7 @@ if (__DEV__) {
   if (module.hot) {
     const renderApp = render
     const renderError = (error) => {
-      const RedBox = require('redbox-react').default
+      const RedBox = require('redbox-react').default // eslint-disable-line
 
       ReactDOM.render(<RedBox error={error} />, MOUNT_NODE)
     }
@@ -49,7 +50,7 @@ if (__DEV__) {
       setImmediate(() => {
         ReactDOM.unmountComponentAtNode(MOUNT_NODE)
         render()
-      })
+      }),
     )
   }
 }

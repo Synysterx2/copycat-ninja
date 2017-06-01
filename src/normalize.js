@@ -25,8 +25,8 @@ Object.assign = require('object-assign')
 // 2) Promise
 // ------------------------------------
 if (typeof Promise === 'undefined') {
-  require('promise/lib/rejection-tracking').enable()
-  window.Promise = require('promise/lib/es6-extensions.js')
+  require('promise/lib/rejection-tracking').enable() // eslint-disable-line
+  window.Promise = require('promise/lib/es6-extensions.js') // eslint-disable-line
 }
 
 // 3) Fetch
@@ -34,5 +34,5 @@ if (typeof Promise === 'undefined') {
 // Fetch polyfill depends on a Promise implementation, so it must come after
 // the feature check / polyfill above.
 if (typeof window.fetch === 'undefined') {
-  require('whatwg-fetch')
+  require('whatwg-fetch') // eslint-disable-line
 }

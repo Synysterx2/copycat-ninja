@@ -1,0 +1,24 @@
+{
+  "extends": "eslint-config-airbnb",
+  "ecmaFeatures": {
+    "globalReturn": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-console": [1],
+    "max-len": [1, 120, 2, {"ignoreComments": true}],
+    "no-else-return": [0],
+    "semi": [2, "never"],
+    "import/prefer-default-export": [0],
+    "no-param-reassign": [0],
+    "arrow-body-style": [0]
+  },
+  "globals": {
+    "__DEV__": true,
+    "__TEST__": true,
+    "window": true,
+    "document": true,
+    "localStorage": true
+  }
+}

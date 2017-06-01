@@ -1,0 +1,11 @@
+build/*
+lib/*
+coverage/*
+node_modules/*
+dist/*
+
+src/index.html
+tests/**
+bin/**
+config/**
+server/**
